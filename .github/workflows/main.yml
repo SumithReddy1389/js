@@ -1,0 +1,26 @@
+name : work flow example 1
+
+on:
+  push:
+    branches:
+      'master'
+  pull_request:
+    branches:
+      ["*"]
+  schedule:
+    - cron: "30 0 * * *"
+
+jobs:
+  jobone:
+    name : job one
+    runs-on : "ubuntu-latest"
+
+    steps:
+      - name : step One
+        uses : actions/checkout@v4
+
+      - name : step Two
+        run : mvn test
+      
+    
+  
